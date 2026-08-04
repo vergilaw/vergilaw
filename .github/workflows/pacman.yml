@@ -2,8 +2,8 @@ name: Generate Pacman Contribution Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Tự chạy mỗi đêm
-  workflow_dispatch:     # Cho phép bấm chạy bằng tay
+    - cron: "0 0 * * *"
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -17,11 +17,11 @@ jobs:
     timeout-minutes: 5
     
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Generate pacman.svg
-        uses: rodrigodsl/pacman-contribution@main
+      - name: Generate pacman animation
+        uses: afc163/pacman-contribution@master
         with:
           github_user_name: ${{ github.repository_owner }}
 
